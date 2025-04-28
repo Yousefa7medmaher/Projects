@@ -1,7 +1,7 @@
 # Full-Stack Automatic Number Plate Recognition (ANPR) System
 
 ![ANPR System Logs](assets/logs.png)
-
+- [View the project python anpr logic on GitHub](https://github.com/Yousefa7medmaher/ANPR-CheckIn-Out-)
 ## Overview
 This project is a full-stack Automatic Number Plate Recognition (ANPR) system designed to detect and process vehicle license plates. It uses Python, OpenCV for image processing, Roboflow for dataset management, and integrates with a PHP-based backend and a frontend built using HTML, CSS, and JavaScript. The project also includes a relational database for storing vehicle entry/exit logs, plate information, and more.
 
