@@ -2,7 +2,7 @@
 
 EGYbank is a comprehensive banking website with user and admin interfaces, offering a range of features for account management, transactions, and user profile customization.
 
-![EGYbank Logo](https://via.placeholder.com/150x50?text=EGYbank)
+![EGYbank Logo](home.png)
 
 ## Table of Contents
 
