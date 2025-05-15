@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dark theme styles */
+        body.dark-theme {
+            background-color: #1f2937;
+            color: #f3f4f6;
+        }
+
+        body.dark-theme .form-container {
+            background-color: #111827;
+        }
+
+        body.dark-theme .input-group input {
+            background-color: #374151;
+            color: #f3f4f6;
+        }
+
+        body.dark-theme .input-group label {
+            background-color: #111827;
+            color: #d1d5db;
+        }
+
+        body.dark-theme .btn {
+            background-color: #3b82f6;
+        }
+
+        body.dark-theme .btn:hover {
+            background-color: #2563eb;
+        }
+
+        body.dark-theme .toggle-form a {
+            color: #60a5fa;
+        }
+
+        body.dark-theme .social-btn {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: #f3f4f6;
+        }
+
+        body.dark-theme .divider-line {
+            background-color: #4b5563;
+        }
+
+        body.dark-theme .divider-text {
+            color: #d1d5db;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4285f4;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Home button */
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 8px 15px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .home-button:hover {
+            background-color: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-theme .home-button {
+            background-color: #3b82f6;
+        }
+
+        body.dark-theme .home-button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <a href="home.html" class="home-button">← Back to Home</a>
+
+    <div class="container">
+        <div class="image-container">
+            <div class="overlay"></div>
+            <div class="tagline"></div>
+        </div>
+
+        <div class="form-container">
+            <div class="form-slide" id="formSlide">
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <h2>Login to Your Account</h2>
+                    <div class="input-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="divider">
+                        <div class="divider-line"></div>
+                        <div class="divider-text">OR</div>
+                        <div class="divider-line"></div>
+                    </div>
+                    <div class="social-login">
+                        <div class="social-btn">G</div>
+                        <div class="social-btn">f</div>
+                        <div class="social-btn">in</div>
+                    </div>
+                    <div class="toggle-form">
+                        Don't have an account? <a id="showRegister">Register</a>
+                    </div>
+                </form>
+
+                <form id="registerForm">
+                    <h2>Create an Account</h2>
+
+                    <div class="input-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" placeholder="Enter your username" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-phone">Phone</label>
+                        <input type="text" id="register-phone" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" placeholder="Create a password" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" placeholder="Confirm your password" required>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="checkbox" id="show-password" onclick="togglePassword()">
+                        <label for="show-password">Show Password</label>
+                    </div>
+
+                    <button type="submit" class="btn">Register</button>
+
+                    <div class="toggle-form">
+                        Already have an account? <a id="showLogin">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" id="themeIcon">
+            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
